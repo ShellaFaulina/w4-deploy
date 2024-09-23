@@ -9,15 +9,21 @@ ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 ### </JANGAN DIGANTI>
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
 
-# Expose port 3000 
-EXPOSE 3000
+# Copy package.json dan package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy seluruh file aplikasi
+COPY . .
 
 # Build the project
 RUN npm run build
 
+# Expose port 3000 (port aplikasi Nuxt)
+EXPOSE 3000
+
 # Command to run the application
-CMD ["npm", "start"]
+CMD ["npm", "run", "preview"]
