@@ -8,22 +8,27 @@ ENV NUXT_STUDENT_NAME ${STUDENT_NAME}
 ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
 ### </JANGAN DIGANTI>
 
+# TODO: code disini
+ENV NUXT_STUDENT_NAME "Hello World\n${STUDENT_NAME}"
+ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
+
+# Set direktori kerja dalam container
 WORKDIR /app
 
-# Copy package.json dan package-lock.json
+# Salin package.json dan package-lock.json untuk menginstal dependencies
 COPY package*.json ./
 
-# Install dependencies
+# Instal dependencies
 RUN npm install
 
-# Copy seluruh file aplikasi
+# Salin seluruh kode sumber ke dalam container
 COPY . .
 
-# Build the project
+# Build aplikasi untuk produksi
 RUN npm run build
 
-# Expose port 80 (port aplikasi Nuxt)
-EXPOSE 3000
+# Ekspos port yang digunakan oleh aplikasi (Vite menggunakan 5173 secara default)
+EXPOSE 8080
 
-# Command to run the application
-CMD ["npm", "run", "preview", "--port", "80"]
+# Perintah untuk menjalankan aplikasi
+CMD ["npm", "start"]
