@@ -7,13 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "start": "nuxt preview"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.13.0",
     "vue": "latest",
-    "vue-router": "latest"
-  }
+    "vue-router": "latest"
+  }
 }
