@@ -23,7 +23,7 @@ COPY . .
 RUN npm run build
 
 # Expose port 80 (port aplikasi Nuxt)
-EXPOSE 80
+EXPOSE 3000
 
 # Command to run the application
 CMD ["npm", "run", "preview", "--port", "80"]
